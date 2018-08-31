@@ -11,7 +11,7 @@
     <label>Access</label>
     <select class="form-control" formControlName="access" multiple style="height: 180px;">
       <option *ngFor="let a of accessList" [value]="a.key">
-        {{ a.value }}
+        [{{ a.key }}] {{ a.value }}
       </option>
     </select>
   </div>

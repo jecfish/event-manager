@@ -20,10 +20,9 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'grant',
+    path: 'signup',
     component: GrantComponent,
-    data: { type: 'GRANT' },
-    canActivate: environment.setupMode ? [] : [CheckGuard]
+    data: { type: environment.setupMode ? 'GRANT' : 'SIGNUP' }
   },
   {
     path: 'rights',
@@ -74,7 +73,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: environment.setupMode ? '/grant' : '/home',
+    redirectTo: '/home',
     pathMatch: 'full'
   }
 ];

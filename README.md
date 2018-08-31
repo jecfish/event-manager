@@ -2,6 +2,9 @@
 
 Event Management PWA App (Angular, Firebase, Google Sheets) - Used in IOxKL 2018 (https://events.gdgkl.org/io/)
 
+**Features (general)**
+- Signup (No rights assigned to user during signup, admin need to assign)
+
 **Features (for volunteer) - bottom menu **
 - Search attendee (SEARCH)
 - Check-in & badge distribution management - Single / Pair Mode (CHECK-IN, BADGE)
@@ -11,8 +14,7 @@ Event Management PWA App (Angular, Firebase, Google Sheets) - Used in IOxKL 2018
 **Features (for admin) - home page menu**
 - Live event status update (DASHBOARD)
 - Bulk loading attendee list (LOAD)
-- Create new user (GRANT)
-- Manage user access (RIGHTS)
+- Manage user access rights (RIGHTS)
 
 # Settings
 
@@ -46,8 +48,8 @@ There are a couple of config you need to update, wild search for `todo` in the p
 2. Replace Google sheet config in this project:
     - `id` is the google sheet id, extract from the google sheet url (e.g. https://docs.google.com/spreadsheets/d/<copy_sheet_id_here>/edit)
     - `apiKey` is the same as firebase api key
-3. When running in `localhost` first time, you should see `grant` page, enter your email and password, and tick on all checkbox to create first admin user.
-4. Once created user, disabled `setupMode` in `src/environments/environment.ts` (Set to false). Enable setup mode is dangerous.
+3. When running in `localhost` first time, go to `signup` page, enter your email and password, and tick on all checkbox to create first admin user.
+4. Once created user, disabled `setupMode` in `src/environments/environment.ts` (Set to `false`). Enable setup mode is dangerous (when `setupMode` is enabled, user can select access rights during signup).
 5. Load attendee list by navigate to LOAD page. Refer to instruction in this google sheet `data` tab (https://docs.google.com/spreadsheets/d/10U15rDEBWaDacqGfZyS4AOvmmLxAGzwqynawuSB2jbw)
 6. Prepare a survey result google sheet for lucky draw entitlement. Refer to instruction in this google sheet `survey` tab (https://docs.google.com/spreadsheets/d/10U15rDEBWaDacqGfZyS4AOvmmLxAGzwqynawuSB2jbw)
 

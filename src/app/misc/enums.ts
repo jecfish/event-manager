@@ -40,12 +40,12 @@ export const SESSION_KEY = {
 };
 
 export const ACCESS_LIST = [
+    { key: 'SEARCH', value: 'Search badge by name' },
     { key: 'CHECK', value: 'Check-in' },
     { key: 'BADGE', value: 'Badge distribution' },
     { key: 'SHIRT', value: 'Goodies' },
     { key: 'LUCKY', value: 'Lucky draw' },
-    { key: 'SEARCH', value: 'Search badge by name' },
-    { key: 'GRANT', value: 'Grant user rights' },
+    // { key: 'GRANT', value: 'Grant user rights' },
     { key: 'RIGHTS', value: 'Manage user rights'},
     { key: 'LOAD', value: 'Load data' },
     { key: 'DASHBOARD', value: 'Live data' }

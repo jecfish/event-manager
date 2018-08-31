@@ -1,4 +1,4 @@
-<h5>Grant Access</h5>
+<h5 *ngIf="showAccessList">Grant Access</h5>
 <form [formGroup]="frm">
   <div class="form-group">
     <label>Name</label>
@@ -15,16 +15,18 @@
   <div class="form-group">
     <input type="hidden" class="form-control" formControlName="access">
   </div>
-  <div class="form-group">
+  <div class="form-group" *ngIf="showAccessList">
     <label>Access</label>
     <div class="form-check" *ngFor="let access of accessList">
-      <input class="form-check-input" type="checkbox" [value]="access.key" (change)="$event.target.checked? setAccess(access.key, true) : setAccess(access.key, false)">
+      <input class="form-check-input" type="checkbox" [checked]="isAccessCheck(access.key)" [value]="access.key" (change)="$event.target.checked? setAccess(access.key, true) : setAccess(access.key, false)">
       <label class="form-check-label">
         [{{ access.key }}] {{ access.value }}
       </label>
     </div>
   </div>
-  <button type="submit" class="btn btn-primary" [disabled]="!frm.valid" (click)="grant(frm.value, frm.valid)">Grant</button>
+  <button type="submit" class="btn btn-primary" [disabled]="!frm.valid" (click)="grant(frm.value, frm.valid)">
+    {{ showAccessList ? 'Grant' : 'Signup' }}
+  </button>
 </form>
 <div style="margin-top: 10px">
   <pre *ngIf="result">{{ result | json }}</pre>
