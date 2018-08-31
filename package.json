@@ -1,12 +1,14 @@
 {
   "name": "event-manager",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
+    "predeploy": "yarn build --prod",
+    "deploy": "firebase deploy",
     "e2e": "ng e2e"
   },
   "private": true,
@@ -19,8 +21,14 @@
     "@angular/http": "^6.1.0",
     "@angular/platform-browser": "^6.1.0",
     "@angular/platform-browser-dynamic": "^6.1.0",
+    "@angular/pwa": "^0.7.5",
     "@angular/router": "^6.1.0",
+    "@angular/service-worker": "^6.1.0",
+    "angularfire2": "^5.0.0-rc.12",
+    "chart.js": "^2.7.2",
     "core-js": "^2.5.4",
+    "date-fns": "^1.29.0",
+    "firebase": "^5.4.2",
     "rxjs": "^6.0.0",
     "zone.js": "~0.8.26"
   },

@@ -1,0 +1,26 @@
+
+<p *ngIf="!(people$ | async)?.length">Loading...</p>
+<form *ngIf="(people$ | async)?.length" [formGroup]="frm" (ngSubmit)="go(frm.value.q)">
+  <div class="form-group">
+    <label>Enter name or last 4 (ic, passport no.)</label>
+    <div class="form-control-container">
+      <button type="button" class="form-control-clear" *ngIf="frm.value.q" (click)="clearQ()"></button>
+      <input type="search" class="form-control form-control-lg" formControlName="q" #q>
+    </div>
+    
+    <small class="text-muted">minimum 4 charecters to search</small>
+  </div>
+  <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="frm.invalid">Search</button>
+  <div style="margin-top: 10px">
+    <div class="card" *ngIf="result?.data">
+        <h5 class="card-header">{{ result.data.name }} ({{ result.data.pid }})</h5>
+        <!-- shirt -->
+        <div class="card-body">
+          <h3 class="card-title">
+            BADGE ID: <strong>{{ result.data.seq }}</strong>
+          </h3>
+        </div>
+    </div>
+    <pre *ngIf="!result?.data">{{ result | json }}</pre>
+  </div>
+</form>

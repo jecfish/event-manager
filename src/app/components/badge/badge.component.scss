@@ -1,0 +1,23 @@
+.flash {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: grey;
+    border: 4px solid grey;
+    padding: 4px 8px;
+
+    &.active {
+        color: #593196;
+        border-color: #593196;
+    }
+
+    &-header {
+        font-size: 5rem;
+    }
+
+    &-body {
+        text-align: center;
+        font-size: x-large;
+    }
+}

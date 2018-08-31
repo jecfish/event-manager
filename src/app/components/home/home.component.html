@@ -1,0 +1,17 @@
+<div *ngIf="(user$ | async) as user">
+  <p>
+    <span>You login as:</span>
+    <br>
+    <strong>{{ user.email }}</strong>
+    <br>
+    <button class="btn btn-secondary" style="margin-top:10px" (click)="logout()">Logout</button>
+  </p>
+
+  <ul>
+    <li *ngFor="let link of extraLinks$ | async">
+      <a routerLink="/{{ link | lowercase }}">{{ link }}</a>
+    </li>
+  </ul>
+</div>
+
+<iox-login *ngIf="!(user$ | async)"></iox-login>

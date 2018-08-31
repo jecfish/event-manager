@@ -1,0 +1,50 @@
+.form-control {
+    padding-right: 3rem;
+
+    &-container {
+        position: relative;
+    }
+
+    &-clear {
+        position: absolute;
+        width: 3rem;
+        top: 0;
+        right: 0;
+        height: 44px;
+        text-align: center;
+        transform: rotate(45deg);
+
+        &:before,
+        &::after {
+            content: '';
+            position: absolute;
+            top: calc(50% - 1px);
+            left: calc(50% - 10px);
+            width: 20px;
+            height: 2px;
+            background: gray;
+        }
+
+        &:after {
+            transform: rotate(90deg);
+        }
+
+        &,
+        &:hover,
+        &:focus,
+        &:active {
+            background: none;
+            border: 0;
+            outline: none;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+            &::before,
+            &::after {
+                background: black;
+            }
+        }
+    }
+}

@@ -1,0 +1,26 @@
+article {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 100%;
+}
+
+header {
+    background: #593196;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+main {
+    background: whitesmoke;
+    color: #444;
+    padding: 1rem;
+}
+
+footer {
+    // background: #593196;
+    color: white;
+    padding: 1rem;
+}

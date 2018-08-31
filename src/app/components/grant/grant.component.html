@@ -1,0 +1,31 @@
+<h5>Grant Access</h5>
+<form [formGroup]="frm">
+  <div class="form-group">
+    <label>Name</label>
+    <input type="name" class="form-control" formControlName="name">
+  </div>
+  <div class="form-group">
+    <label>Email address</label>
+    <input type="email" class="form-control" formControlName="email">
+  </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input type="password" class="form-control" formControlName="password">
+  </div>
+  <div class="form-group">
+    <input type="hidden" class="form-control" formControlName="access">
+  </div>
+  <div class="form-group">
+    <label>Access</label>
+    <div class="form-check" *ngFor="let access of accessList">
+      <input class="form-check-input" type="checkbox" [value]="access.key" (change)="$event.target.checked? setAccess(access.key, true) : setAccess(access.key, false)">
+      <label class="form-check-label">
+        {{ access.value }}
+      </label>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!frm.valid" (click)="grant(frm.value, frm.valid)">Grant</button>
+</form>
+<div style="margin-top: 10px">
+  <pre *ngIf="result">{{ result | json }}</pre>
+</div>

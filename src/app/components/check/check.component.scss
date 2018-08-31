@@ -1,0 +1,56 @@
+.cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+
+  form {
+    width: 100%;
+  }
+
+  .main-content {
+    margin-top: 5px;
+    width: 100%;
+    flex-grow: 1;
+  }
+}
+
+.bg {
+  &-success {
+    background-color: #bdebcf !important;
+  }
+
+  &-warning {
+    background-color: #fbe5c0 !important;
+  }
+}
+
+.keyboard {
+  list-style: none;
+  padding: 0px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  max-width: 300px;
+  margin-top: 10px;
+  justify-items: center;
+  align-items: end;
+
+  li {
+    button {
+      width: 80px;
+      height: 50px;
+      margin: 3px;
+      border: 1px solid #593196;
+      font-size: large;
+    }
+  }
+}
+
+.iox-card {
+    border: 1px solid;
+
+    >div {
+        padding: 10px;
+    }
+}

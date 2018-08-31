@@ -1,0 +1,37 @@
+<form [formGroup]="frm" (ngSubmit)="follow(frm.value.email)" [hidden]="!isShowForm" style="margin-bottom: 5px;">
+  <label>Who do you pair with? 
+      <a href="javascript:void(0)" *ngIf="isShowForm && email" (click)="isShowForm = false">Hide</a></label>
+  <div class="input-group" formContr>
+    <select class="form-control form-control-lg" formControlName="email">
+      <option *ngFor="let right of rights$ | async" [value]="right.user">
+        {{ right.name }}
+      </option>
+    </select>
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" type="submit" [disabled]="frm.invalid">Follow</button>
+    </div>
+  </div>
+</form>
+<div *ngIf="email">
+  <p *ngIf="!isShowForm">Following <strong>{{email | slice: 0: 10}}...</strong>.
+    <a href="javascript:void(0)" (click)="showForm()">Change?</a>
+  </p>
+  <div *ngIf="(list$ | async) as list">
+    <div *ngIf="!list.length">
+      Queue cleared!
+    </div>
+    <div class="flash" *ngFor="let user of list; index as idx" [class.active]="idx == 0" style="margin-bottom: 10px">
+      <!-- <pre>{{ user | json }}</pre> -->
+      <h5 class="flash-header">
+        {{ user.seq }}
+      </h5>
+      <div class="flash-body">
+        <span>{{ user.name | slice: 0:15 }}...</span>
+        <button class="btn btn-block btn-lg btn-{{ idx == 0 ? 'primary' : 'secondary' }}" (click)="dequeue(user.seq)" type="button">GIVE BADGE</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div *ngIf="result">
+  <pre>{{ result?.data || result?.error | json }}</pre>
+</div> -->

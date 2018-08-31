@@ -1,0 +1,123 @@
+<div class="cont">
+  <form [formGroup]="frm" (ngSubmit)="go(frm.value.seq)">
+    <label>Enter 4 Digits Badge ID</label>
+    <input type="tel" class="form-control form-control-lg" formControlName="seq" readonly>
+    <div class="btn-group btn-group-toggle" style="margin-top: 5px" *ngIf="config.type === checkEnum.check">
+      <label class="btn btn-sm btn-secondary" [class.active]="!frm.value.isSingleMode">
+        <input type="radio" [value]="false" formControlName="isSingleMode"> Pair
+      </label>
+      <label class="btn btn-sm btn-secondary" [class.active]="frm.value.isSingleMode">
+        <input type="radio" [value]="true" formControlName="isSingleMode"> Single
+      </label>
+    </div>
+  </form>
+  <div class="main-content">
+    <p *ngIf="isLoading">loading...</p>
+    <div class="iox-card" *ngIf="result?.status === statusEnum.FOUND">
+      <!-- <pre>{{ result | json }}</pre> -->
+      <!-- shirt -->
+      <div *ngIf="config.type === checkEnum.shirt" [class.bg-warning]="!result.data?.isGotShirt" [class.bg-success]="result.data?.isGotShirt">
+        
+        <h5>{{ result.data.name }}</h5>
+        <h4 class="card-title">Size:
+          <strong>{{ result.data.shirt | uppercase }}</strong>
+          <span>
+            ({{ (result.data.isGotShirt ? 'DONE' : 'PENDING') }})
+          </span>
+        </h4>
+      </div>
+      <!-- check -->
+      <div *ngIf="config.type === checkEnum.check" [class.bg-warning]="!result.data?.isGotCheck" [class.bg-success]="result.data?.isGotCheck">
+        <h5>{{ result.data.name | titlecase }}</h5>
+        <h4>ID:
+          <strong>{{ result.data.pid }}</strong>
+          <span>
+            ({{ (result.data.isGotCheck ? 'CHECKED' : 'PENDING') }})
+          </span>
+        </h4>
+      </div>
+      <!-- lucky -->
+      <div *ngIf="config.type === checkEnum.lucky">
+        <h5>{{ result.data.name | titlecase }}</h5>
+        <h4>Survey:
+          <strong>{{ result.data.survey ? 'FOUND' : 'NOT FOUND' }}</strong>
+          <br>
+          <span>Entry:
+            <span [class.text-warning]="!result.data.isGotLucky" [class.text-success]="result.data.isGotLucky">
+              {{ (result.data.isGotLucky ? 'DONE' : 'PENDING') }}
+            </span>
+          </span>
+        </h4>
+      </div>
+    </div>
+    <div *ngIf="result?.status !== statusEnum.FOUND">
+      <pre>{{ result | json }}</pre>
+    </div>
+  </div>
+  <ul class="keyboard">
+    <li>
+      <button class="btn btn-light" (click)="enterKey('1')">1</button>
+    </li>
+    <li>
+      <button class="btn btn-light" (click)="enterKey('2')">2</button>
+    </li>
+    <li>
+      <button class="btn btn-light" (click)="enterKey('3')">3</button>
+    </li>
+    <li>
+      <button class="btn btn-light" (click)="enterKey('4')">4</button>
+    </li>
+    <li>
+      <button class="btn btn-light" (click)="enterKey('5')">5</button>
+    </li>
+    <li>
+      <button class="btn btn-light" (click)="enterKey('6')">6</button>
+    </li>
+    <li>
+      <button class="btn btn-light" (click)="enterKey('7')">7</button>
+    </li>
+    <li>
+      <button class="btn btn-light" (click)="enterKey('8')">8</button>
+    </li>
+    <li>
+      <button class="btn btn-light" (click)="enterKey('9')">9</button>
+    </li>
+    <li>
+      <button class="btn btn-light" (click)="enterKey(' ')">CLR</button>
+    </li>
+    <li>
+      <button class="btn btn-light" (click)="enterKey('0')">0</button>
+    </li>
+    <li *ngIf="!(result?.data && result?.data[config.boolKey])">
+      <button class="btn btn-success" (click)="enterKey('.')" [disabled]="!result?.data || (config?.type === checkEnum.lucky && !result?.data?.survey)">{{ config.lblYes }}</button>
+    </li>
+    <li *ngIf="result?.data && result?.data[config.boolKey]">
+      <button class="btn btn-danger" (click)="enterKey('-')">UNDO</button>
+    </li>
+  </ul>
+</div>
+<!-- <div style="margin-top: 10px">
+  <p>shortcuts:</p>
+  <ul>
+    <li>type space " " to clear entry</li>
+    <li>type dot "." to give</li>
+    <li>type dot "-" to undo give</li>
+  </ul>
+</div>
+<div style="margin-top: 10px">
+  <p>example 1:</p>
+  <ol>
+    <li>type "7777"</li>
+    <li>record found, continue to type dot "." to give</li>
+  </ol>
+  <p>example 2:</p>
+  <ol>
+    <li>type "8888"</li>
+    <li>record not found, continue to type space " " to clear entry</li>
+  </ol>
+  <p>example 3:</p>
+  <ol>
+    <li>type "9999"</li>
+    <li>record found, attendee already register, continue to type space "-" to undo entry</li>
+  </ol>
+</div> -->

@@ -1,0 +1,15 @@
+<h5>Hello, please login</h5>
+<form [formGroup]="frm">
+  <div class="form-group">
+    <label>Email address</label>
+    <input type="email" class="form-control" formControlName="email">
+  </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input type="password" class="form-control" formControlName="password">
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="login(frm.value)">Login</button>
+</form>
+<div style="margin-top: 10px">
+  <pre *ngIf="result?.status === 'error'">{{ result?.error | json }}</pre>
+</div>

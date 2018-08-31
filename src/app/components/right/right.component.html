@@ -1,0 +1,22 @@
+<form [formGroup]="frm" (ngSubmit)="grant(frm.value)">
+  <div class="form-group">
+    <label>User</label>
+    <select class="form-control form-control-lg" formControlName="email">
+      <option *ngFor="let right of rights$ | async" [value]="right.user">
+        {{ right.name }}
+      </option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Access</label>
+    <select class="form-control" formControlName="access" multiple style="height: 180px;">
+      <option *ngFor="let a of accessList" [value]="a.key">
+        {{ a.value }}
+      </option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!frm.valid">Update</button>
+</form>
+<div *ngIf="result">
+  <pre>{{ result | json }}</pre>
+</div>

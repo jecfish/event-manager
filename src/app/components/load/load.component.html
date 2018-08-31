@@ -1,0 +1,12 @@
+<p>
+  load data (json)
+</p>
+
+<form [formGroup]="frm">
+  <textarea class="form-control" formControlName="jsonStr"></textarea>
+  <div style="margin-top: 10px;">
+    <button type="button" (click)="load(frm.value.jsonStr)" class="btn btn-lg btn-primary btn-block">
+      Load
+    </button>
+  </div>
+</form>

@@ -1,0 +1,12 @@
+<h3>Dashboard</h3>
+<div class="dashboard">
+    <article *ngIf="checkChart">
+        <canvas [ioxChart]="checkChart" height="400" width="400"></canvas>
+    </article>
+    <article *ngIf="shirtChart">
+        <canvas [ioxChart]="shirtChart" height="400" width="400"></canvas>
+    </article>
+    <article *ngIf="luckyChart">
+        <canvas [ioxChart]="luckyChart" height="400" width="400"></canvas>
+    </article>
+</div>
