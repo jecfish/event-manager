@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewChecked } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { first } from 'rxjs/operators';
@@ -9,7 +9,7 @@ import { BehaviorSubject } from 'rxjs';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
-export class SearchComponent implements AfterViewInit {
+export class SearchComponent implements AfterViewChecked {
   result: Result;
   frm: FormGroup;
   isLoading = false;
@@ -36,7 +36,8 @@ export class SearchComponent implements AfterViewInit {
       });
   }
 
-  ngAfterViewInit() {
+  ngAfterViewChecked() {
+    if (!this.qEl) return;
     (this.qEl.nativeElement as HTMLInputElement).focus();
   }
 
