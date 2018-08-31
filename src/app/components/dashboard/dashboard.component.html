@@ -1,4 +1,8 @@
 <h3>Dashboard</h3>
+<form [formGroup]="frm">
+    <h5>total attendees: <input type="number" formControlName="count"></h5>
+</form>
+
 <div class="dashboard">
     <article *ngIf="checkChart">
         <canvas [ioxChart]="checkChart" height="400" width="400"></canvas>

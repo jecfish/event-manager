@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { Observable, interval, combineLatest } from 'rxjs';
-import { take } from 'rxjs/operators';
+import { take, distinctUntilChanged, debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'iox-dashboard',
@@ -10,13 +11,26 @@ import { take } from 'rxjs/operators';
 })
 export class DashboardComponent implements OnInit {
 
+  frm: FormGroup;
   totalPeopleCount$: Observable<TotalPeople>;
   people$: Observable<People[]>;
   checkChart;
   shirtChart;
   luckyChart;
 
-  constructor(afs: AngularFirestore) {
+  constructor(fb: FormBuilder, afs: AngularFirestore) {
+    this.frm = fb.group({
+      count: [0, Validators.required],
+    });
+
+    this.frm.get('count').valueChanges.pipe(
+      debounceTime(300),
+      distinctUntilChanged()
+    ).subscribe(x => {
+      console.log('here');
+      afs.doc<TotalPeople>('total/people').set({ count: x });
+    });
+
     this.totalPeopleCount$ = afs.doc<TotalPeople>('total/people').valueChanges();
     this.people$ = afs.collection<People>('people').valueChanges();
   }
@@ -31,7 +45,9 @@ export class DashboardComponent implements OnInit {
       const totalCheck = list.filter(x => x.isGotCheck).length;
       const totalShirt = list.filter(x => x.isGotShirt).length;
       const totalLucky = list.filter(x => x.isGotLucky).length;
-      console.log(totalCheck);
+
+      this.frm.get('count').setValue(max, { emitEvent: false });
+
       this.checkChart = undefined;
       this.shirtChart = undefined;
       this.luckyChart = undefined;
