@@ -22,7 +22,7 @@ This project use Firebase Auth, Firestore, Google Sheets API.
 
 **Firebase**
 1. Register Firebase: https://firebase.google.com/
-2. Create a new Firebase project. (You may create 2 projects, 1 for development, 1 for production)
+2. Create a new Firebase project(s). (You may create 2 projects, 1 for development, 1 for production)
 3. Setup Authentication Sign In Method - Email / Password
 4. Enable Firestore as `test mode`. (Update to non test mode when deploy to production)
 5. Install firebase npm tools `npm install -g firebase-tools` globally in your machine.
@@ -35,13 +35,6 @@ This project use Firebase Auth, Firestore, Google Sheets API.
 3. Create a Google Sheet like this one (sheet name should be *survey*, column B contains *id*)
 4. Set the sheet permission to *anyone with the link can view*.
 
-# Run the project
-
-1. Run `yarn` or `npm install` to install dependencies.
-2. Run `yarn start` or `npm start` to run the project in http://localhost:4200
-3. Run `yarn build --prod` or `npm run build --prod` to build project - artifact in `dist` folder
-4. Run `yarn deploy` or `npm run deploy` to deploy to firebase
-
 # Project config & setup
 There are a couple of config you need to update, wild search for `todo` in the project to find them, or follow instruction below:
 
@@ -49,10 +42,17 @@ There are a couple of config you need to update, wild search for `todo` in the p
 2. Replace Google sheet config in this project:
     - `id` is the google sheet id, extract from the google sheet url (e.g. https://docs.google.com/spreadsheets/d/<copy_this_sheet_id>/edit)
     - `apiKey` is the same as firebase api key
-3. When running in `localhost` first time, go to `signup` page, enter your email and password, and tick on all checkbox to create first admin user.
+3. When running project for first time, go to `signup` page, enter your email and password, and tick on all checkbox to create first admin user.
 4. Once created user, disabled `setupMode` in `src/environments/environment.ts` (Set to `false`). Enable setup mode is dangerous (when `setupMode` is enabled, user can select access rights during signup).
 5. Load attendee list by navigate to LOAD page. Refer to instruction in this google sheet `data` tab (https://docs.google.com/spreadsheets/d/10U15rDEBWaDacqGfZyS4AOvmmLxAGzwqynawuSB2jbw)
 6. Prepare a survey result google sheet for lucky draw entitlement. Refer to instruction in this google sheet `survey` tab (https://docs.google.com/spreadsheets/d/10U15rDEBWaDacqGfZyS4AOvmmLxAGzwqynawuSB2jbw)
+
+# Run the project
+
+1. Run `yarn` or `npm install` to install dependencies.
+2. Run `yarn start` or `npm start` to run the project in http://localhost:4200
+3. Run `yarn build --prod` or `npm run build --prod` to build project - artifact in `dist` folder
+4. Run `yarn deploy` or `npm run deploy` to deploy to firebase
 
 # Other info
 
