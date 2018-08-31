@@ -1,6 +1,6 @@
 # Event Manager
 
-Event Management PWA App (Angular, Firebase, Google Sheets) - Used by the volunteer team in Google IO Extended KL 2018 (https://events.gdgkl.org/io/) to manage 400+ people check-in, badge collection, goodies distribution, survey & lucky draw entitlement.
+Event Management PWA (Angular, Firebase, Google Sheets) - Used by the volunteer team in Google IO Extended KL 2018 (https://events.gdgkl.org/io/) to manage 400+ people check-in, badge collection, goodies distribution, survey & lucky draw entitlement.
 
 **Features (general)**
 - Signup (No rights assigned to user during signup, admin need to assign)
