@@ -43,7 +43,7 @@ There are a couple of config you need to update, wild search for `todo` in the p
     - `id` is the google sheet id, extract from the google sheet url (e.g. https://docs.google.com/spreadsheets/d/<copy_this_sheet_id>/edit)
     - `apiKey` is the same as firebase api key
 3. When running project for first time, go to `signup` page, enter your email and password, and tick on all checkbox to create first admin user.
-4. Once created user, disabled `setupMode` in `src/environments/environment.ts` (Set to `false`). Enable setup mode is dangerous (when `setupMode` is enabled, user can select access rights during signup).
+4. Once created first admin user, disabled `setupMode` in `src/environments/environment.ts` (Set to `false`). Enable setup mode is dangerous (when `setupMode` is enabled, user can select access rights during signup).
 5. Load attendee list by navigate to LOAD page. Refer to instruction in this google sheet `data` tab (https://docs.google.com/spreadsheets/d/10U15rDEBWaDacqGfZyS4AOvmmLxAGzwqynawuSB2jbw)
 6. Prepare a survey result google sheet for lucky draw entitlement. Refer to instruction in this google sheet `survey` tab (https://docs.google.com/spreadsheets/d/10U15rDEBWaDacqGfZyS4AOvmmLxAGzwqynawuSB2jbw)
 7. Go to `dashboard` page, set total number of attendees. Once set, charts will display.
