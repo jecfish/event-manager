@@ -32,7 +32,7 @@ This project use Firebase Auth, Firestore, Google Sheets API.
 **Google Sheet API**
 1. Login to Google Cloud console: https://console.cloud.google.com/ (use the same email as Firebase)
 2. Search for Sheets API, enable it
-3. Create a Google Sheet like this one (sheet name should be *survey*, column B contains *id*)
+3. Create a Google Sheet like this one https://docs.google.com/spreadsheets/d/10U15rDEBWaDacqGfZyS4AOvmmLxAGzwqynawuSB2jbw. (sheet name should be *survey*, column B contains *id*)
 4. Set the sheet permission to *anyone with the link can view*.
 
 # Project config & setup
