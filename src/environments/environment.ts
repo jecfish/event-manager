@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  setupMode: true, // todo: disabled setup mode once created first admin user
   firebase: {
     apiKey: 'todo_your_api_key',
     authDomain: 'todo_your_domain.firebaseapp.com',
@@ -13,7 +14,7 @@ export const environment = {
   sheet: {
     baseUrl: 'https://sheets.googleapis.com/v4/spreadsheets',
     id: 'todo_your_sheet_id',
-    apiKey: 'todo_your_sheet_api_key'
+    apiKey: 'todo_same_as_firebase_api_key'
   }
 };
 

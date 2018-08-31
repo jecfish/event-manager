@@ -91,6 +91,7 @@ export class CheckComponent implements OnInit, OnDestroy {
     ).subscribe(async ([data]) => {
       if (!data) {
         this.result = { status: this.statusEnum.NOT_FOUND };
+        this.isLoading = false;
         return;
       }
 

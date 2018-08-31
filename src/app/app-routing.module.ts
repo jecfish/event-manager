@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
+import { environment } from '../environments/environment';
 import { CHECK_TYPE } from './misc/enums';
 
 // components
@@ -23,7 +23,7 @@ const routes: Routes = [
     path: 'grant',
     component: GrantComponent,
     data: { type: 'GRANT' },
-    canActivate: [CheckGuard]
+    canActivate: environment.setupMode ? [] : [CheckGuard]
   },
   {
     path: 'rights',
@@ -74,7 +74,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: environment.setupMode ? '/grant' : '/home',
     pathMatch: 'full'
   }
 ];

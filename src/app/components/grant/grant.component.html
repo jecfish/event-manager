@@ -20,7 +20,7 @@
     <div class="form-check" *ngFor="let access of accessList">
       <input class="form-check-input" type="checkbox" [value]="access.key" (change)="$event.target.checked? setAccess(access.key, true) : setAccess(access.key, false)">
       <label class="form-check-label">
-        {{ access.value }}
+        [{{ access.key }}] {{ access.value }}
       </label>
     </div>
   </div>
