@@ -5,7 +5,7 @@ Event Management PWA (Angular, Firebase, Google Sheets) - Used by the organizing
 **Features (general)**
 - Signup (No rights assigned to user during signup, admin need to assign)
 
-**Features (for volunteer) - bottom menu **
+**Features (for volunteer) - bottom menu**
 - Search attendee (SEARCH)
 - Check-in & badge distribution management - Single / Pair Mode (CHECK-IN, BADGE)
 - Goodies distribtuion (SHIRT)
