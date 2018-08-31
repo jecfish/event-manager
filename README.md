@@ -46,6 +46,7 @@ There are a couple of config you need to update, wild search for `todo` in the p
 4. Once created user, disabled `setupMode` in `src/environments/environment.ts` (Set to `false`). Enable setup mode is dangerous (when `setupMode` is enabled, user can select access rights during signup).
 5. Load attendee list by navigate to LOAD page. Refer to instruction in this google sheet `data` tab (https://docs.google.com/spreadsheets/d/10U15rDEBWaDacqGfZyS4AOvmmLxAGzwqynawuSB2jbw)
 6. Prepare a survey result google sheet for lucky draw entitlement. Refer to instruction in this google sheet `survey` tab (https://docs.google.com/spreadsheets/d/10U15rDEBWaDacqGfZyS4AOvmmLxAGzwqynawuSB2jbw)
+7. Go to `dashboard` page, set total number of attendees. Once set, charts will display.
 
 # Run the project
 
