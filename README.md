@@ -26,6 +26,7 @@ This project use Firebase Auth, Firestore, Google Sheets API.
 3. Setup Authentication Sign In Method - Email / Password
 4. Enable Firestore as `test mode`. (Update to non test mode when deploy to production)
 5. Install firebase npm tools `npm install -g firebase-tools` globally in your machine.
+6. In the project, run command `firebase init hosting` to setup hosting info. public folder name should be `dist/event-manager`, single page application should be `y`. Refer to `firebase.json` file.
 
 
 **Google Sheet API**
@@ -46,7 +47,7 @@ There are a couple of config you need to update, wild search for `todo` in the p
 
 1. Replace Firebase web config in this project `src/environments/environment.ts` and `src/environments/environment.prod.ts` with your firebase config.
 2. Replace Google sheet config in this project:
-    - `id` is the google sheet id, extract from the google sheet url (e.g. https://docs.google.com/spreadsheets/d/<copy_sheet_id_here>/edit)
+    - `id` is the google sheet id, extract from the google sheet url (e.g. https://docs.google.com/spreadsheets/d/<copy_this_sheet_id>/edit)
     - `apiKey` is the same as firebase api key
 3. When running in `localhost` first time, go to `signup` page, enter your email and password, and tick on all checkbox to create first admin user.
 4. Once created user, disabled `setupMode` in `src/environments/environment.ts` (Set to `false`). Enable setup mode is dangerous (when `setupMode` is enabled, user can select access rights during signup).
