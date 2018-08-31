@@ -1,5 +1,6 @@
 export const environment = {
   production: true,
+  setupMode: false,
   firebase: {
     apiKey: 'todo_your_api_key',
     authDomain: 'todo_your_domain.firebaseapp.com',
