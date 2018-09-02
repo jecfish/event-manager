@@ -11,7 +11,7 @@ Partial demo here: https://event-manager-d1559.firebaseapp.com/. In order to not
 - testc@testc.com testccc
 
 **Features (general)**
-- Signup (No rights assigned to user during signup, admin need to assign)
+- Signup
 
 **Features (for volunteer) - bottom menu**
 - Search attendee (SEARCH)
