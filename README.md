@@ -58,3 +58,6 @@ There are a couple of config you need to update, wild search for `todo` in the p
 # Other info
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.5.
+
+# License
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](/LICENSE)
