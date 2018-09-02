@@ -2,7 +2,13 @@
 
 Event Management PWA (Angular, Firebase, Google Sheets) - Used by the organizing + event team during Google IO Extended KL 2018 (https://events.gdgkl.org/io/) to manage 400+ people check-in, badge collection, goodies distribution, survey & lucky draw entitlement.
 
-Partial demo here: https://event-manager-d1559.firebaseapp.com/ (no sign up and admin feature)
+# Partial Demo
+Partial demo here: https://event-manager-d1559.firebaseapp.com/. In order to not breaking my bill, I have disabled sign up, and most admin features. You can test all volunteer features + view the dashboard.
+
+**Test email/password**
+- testa@testa.com testaaa
+- testb@testb.com testbbb
+- testc@testc.com testccc
 
 **Features (general)**
 - Signup (No rights assigned to user during signup, admin need to assign)
